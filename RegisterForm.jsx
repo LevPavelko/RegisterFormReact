@@ -7,7 +7,8 @@ class RegisterForm extends React.Component{
             wrongPassword: true,
             submitted: false,
             login: "",
-            specialization: ""
+            specialization: "",
+            jobTitle: ""
         };
 
         this.loginRef = React.createRef();
@@ -28,12 +29,16 @@ class RegisterForm extends React.Component{
         let gender = this.genderRef.current.state.value;
 
         let specialization = this.specializationRef.current.state.value;
-        // let jobTitle = this.jobTitleRef.current.state.value;
+        let jobTitle = this.jobTitleRef.current.state.value;
+        
+        alert(this.jobTitleRef.current.state.valid);
         if (this.loginRef.current.state.valid &&
             this.fullNameRef.current.state.valid &&
             this.genderRef.current.state.valid && 
             this.passwordRef.current.state.valid &&
-            this.passwordConfigRef.current.state.valid )
+            this.passwordConfigRef.current.state.valid&&
+            this.jobTitleRef.current.state.valid &&
+            this.specializationRef.current.state.valid )
             
         {
             if(password != passwordComfig){
@@ -44,7 +49,8 @@ class RegisterForm extends React.Component{
                 this.setState({ 
                     submitted: true, 
                     login: login,
-                    specialization: specialization
+                    specialization: specialization,
+                    jobTitle: jobTitle
                 });
             } 
            
@@ -66,7 +72,8 @@ class RegisterForm extends React.Component{
                             )}
                             <FullName value="" ref={this.fullNameRef} />
                             <Gender value="" ref={this.genderRef} />
-                            <Specialization value="" ref={this.specializationRef}></Specialization>
+                            <Specialization value="" ref={this.specializationRef} />
+                            <JobTitle  value="" ref={this.jobTitleRef}/>
                             <input type="submit" value="Отправить" />
                         </form>
                     </div>
@@ -76,6 +83,7 @@ class RegisterForm extends React.Component{
                     <div>
                         <p>{this.state.login}</p>
                         <p>{this.state.specialization}</p>
+                        <p>{this.state.jobTitle}</p>
                         <p>hh</p>
                     </div>
                 )}
