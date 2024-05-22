@@ -14,6 +14,11 @@ class Gender extends React.Component{
         this.setState({ value: val, valid: isValid });
     }
     render() {
+        const validationStyle={
+            color: "blue",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+            fontSize: 18
+        }
         let validation = this.state.valid === true ? "" : "Заполните поле";
         return (
             <p>
@@ -39,7 +44,7 @@ class Gender extends React.Component{
                     Female
                 </label>
                 <br></br>
-                <span >{validation}</span>
+                <span style={validationStyle}>{validation}</span>
                
             </p>
         );

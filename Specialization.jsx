@@ -14,12 +14,19 @@ class Specialization extends React.Component{
         this.setState({ value: val, valid: isValid });
     }
     render() {
+        const validationStyle={
+            color: "blue",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.)",
+            fontSize: 18
+        };
+       
         let validation = this.state.valid === true ? "" : "Заполните поле";
         return (
-            <p>
-                <label>Specialization:</label><br />
+            <div style={{fontSize: 20}}>
+                <label style={{fontSize: 24}}>Specialization:</label>
+                <br />
                 <label>
-                    <input type="checkbox" name="login" value="Desing" onChange={this.onChange} checked={this.state.value === "Desing"}/>
+                    <input type="checkbox" name="login" value="Desing" onChange={this.onChange} checked={this.state.value === "Desing"} />
                 </label>Desing
                 <label>
                     <input type="checkbox" name="login" value="Programmer" onChange={this.onChange} checked={this.state.value === "Programmer"}/>
@@ -30,9 +37,9 @@ class Specialization extends React.Component{
               
                 
                 <br></br>
-                <span >{validation}</span>
+                <span style={validationStyle}>{validation}</span>
                
-            </p>
+            </div>
         );
     }
 }
