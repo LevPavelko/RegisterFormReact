@@ -7,6 +7,8 @@ class RegisterForm extends React.Component{
             wrongPassword: true,
             submitted: false,
             login: "",
+            fullName: "",
+            gender: "",
             specialization: "",
             jobTitle: ""
         };
@@ -49,6 +51,8 @@ class RegisterForm extends React.Component{
                 this.setState({ 
                     submitted: true, 
                     login: login,
+                    fullName: fullName,
+                    gender: gender,
                     specialization: specialization,
                     jobTitle: jobTitle
                 });
@@ -65,7 +69,8 @@ class RegisterForm extends React.Component{
             position: "relative", 
             display: "inline-block",
             borderRadius: 20, 
-            margin: 15,
+            margin: 25,
+            padding: 10
             
         };
         const buttonStyle ={
@@ -114,11 +119,14 @@ class RegisterForm extends React.Component{
                 )}
             
                 {this.state.submitted && (
-                    <div>
+                    <div style={formStyle}>
+                        <h1>Welcome {this.state.login}</h1>
                         <p>{this.state.login}</p>
+                        <p>{this.state.fullName}</p>
+                        <p>{this.state.gender}</p>
                         <p>{this.state.specialization}</p>
                         <p>{this.state.jobTitle}</p>
-                        <p>hh</p>
+                        
                     </div>
                 )}
             </div>
